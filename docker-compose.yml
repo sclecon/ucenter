@@ -1,0 +1,11 @@
+version: "3"
+services:
+  phpfpm:
+    build: "."
+    volumes:
+      - ".:/code"
+    expose:
+      - "9500:9500"
+    restart: "always"
+    command:
+      - "top"

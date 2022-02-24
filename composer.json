@@ -1,0 +1,20 @@
+{
+    "name": "sclecon/ucentor",
+    "description": "Discuz Ucenter Handler for Other framework",
+    "type": "library",
+    "require": {
+        "php": "7.1"
+    },
+    "license": "Apache",
+    "autoload": {
+        "psr-4": {
+            "Sclecon\\Ucentor\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sclecon",
+            "email": "27941662@qq.com"
+        }
+    ]
+}
