@@ -9,10 +9,9 @@ class Ucentor
 {
     public function __construct(array $config){
         Config::getInstance()->verification($config);
-        echo Config::getInstance()->getAppid().PHP_EOL;
     }
 
-    public function user(){
+    public function user() : User {
         return User::getInstance();
     }
 }

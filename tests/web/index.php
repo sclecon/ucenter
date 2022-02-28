@@ -1,7 +1,11 @@
 <?php
 
+echo "Ucenter For Web Client <br>";
+
+echo "<hr/>";
+
 try {
-    require __DIR__.'/../vendor/autoload.php';
+    require __DIR__.'/../../vendor/autoload.php';
 
     $config = [
         'appid' =>  4,
@@ -15,5 +19,5 @@ try {
     $response = $ucenter->user()->register('zhangsanfeng', 'xzcadmin', 'xzcadmin@qq.com');
     var_dump($ucenter);
 } catch (Exception $exception){
-    echo "Error: ".$exception->getMessage().PHP_EOL;
+    echo "错误: ".$exception->getMessage().PHP_EOL;
 }

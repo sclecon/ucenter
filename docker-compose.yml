@@ -2,10 +2,17 @@ version: "3"
 services:
   phpfpm:
     build: "."
+    container_name: "ucenrer-php"
     volumes:
-      - ".:/code"
-    expose:
-      - "9500:9500"
+      - ".:/project"
+    ports:
+      - "9000:9000"
+  nginx:
+    build: "./tests/nginx"
+    container_name: "ucenter-nginx"
+    ports:
+      - "3332:80"
+    volumes:
+      - "./tests/nginx:/etc/nginx/conf.d"
+      - ".:/project"
     restart: "always"
-    command:
-      - "top"

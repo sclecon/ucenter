@@ -3,7 +3,8 @@
     "description": "Discuz Ucenter Handler for Other framework",
     "type": "library",
     "require": {
-        "php": ">=7.1"
+        "php": ">=7.1",
+        "guzzlehttp/guzzle": "~6.0"
     },
     "license": "Apache",
     "autoload": {

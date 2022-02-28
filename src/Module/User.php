@@ -22,7 +22,7 @@ class User
             'regip'     =>  $regIp,
             'salt'      =>  $salt,
         ];
-        return Request::send('user','register', $data);
+        return Request::getInstance()->send('user','register', $data);
     }
 
     public function login(string $username, string $password){
