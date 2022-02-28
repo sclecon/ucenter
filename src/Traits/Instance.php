@@ -5,6 +5,10 @@ namespace Sclecon\Ucentor\Traits;
 trait Instance
 {
     protected static $instance;
+
+    /**
+     * @return self;
+     */
     public static function getInstance(){
         if (is_null(self::$instance)){
             self::$instance = new self();

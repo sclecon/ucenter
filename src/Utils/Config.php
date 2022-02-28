@@ -34,6 +34,16 @@ class Config
      */
     protected $ip;
 
+    /**
+     * @var string
+     */
+    protected $release = '20141101';
+
+    /**
+     * @var string
+     */
+    protected $version = '1.6.0';
+
     public function verification(array $config){
         if (!isset($config['appid'])){
             throw new UcenterException('必须传入Ucenter的Appid配置');
@@ -75,6 +85,38 @@ class Config
 
     protected function setIp(string $ip){
         $this->ip = $ip;
+    }
+
+    public function getKey() : string {
+        if (is_null($this->key) or strlen($this->key) == 0){
+            throw new UcenterException('UC密钥错误');
+        }
+        return $this->key;
+    }
+
+    public function getApi() : string {
+        if (is_null($this->api) or strlen($this->api) == 0){
+            throw new UcenterException('Api配置错误');
+        }
+        return $this->api;
+    }
+
+    public function getAppid() : string {
+        if (is_null($this->appid) or strlen($this->appid) == 0){
+            throw new UcenterException('Appid配置错误');
+        }
+        return $this->appid;
+    }
+
+    public function getRelease() : string {
+        return $this->release;
+    }
+
+    public function getIp() : string {
+        if (is_null($this->ip) or strlen($this->ip) == 0){
+            throw new UcenterException('IP配置错误');
+        }
+        return $this->ip;
     }
 
     public function __call($function, $args){
