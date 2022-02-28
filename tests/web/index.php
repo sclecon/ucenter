@@ -1,9 +1,5 @@
 <?php
 
-echo "Ucenter For Web Client <br>";
-
-echo "<hr/>";
-
 try {
     require __DIR__.'/../../vendor/autoload.php';
 
@@ -15,9 +11,9 @@ try {
         'ip'    =>  '119.91.103.125'
     ];
 
-    $ucenter = new \Sclecon\Ucentor\Ucentor($config);
-    $response = $ucenter->user()->register('zhangsanfeng', 'xzcadmin', 'xzcadmin@qq.com');
-    var_dump($ucenter);
+    // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->register('王二麻子1', 'xzcadmin', 'wangermazi@qq.com2');
+    $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->login('王二麻子1', 'xzcadmin');
+    var_dump($response);
 } catch (Exception $exception){
     echo "错误: ".$exception->getMessage().PHP_EOL;
 }

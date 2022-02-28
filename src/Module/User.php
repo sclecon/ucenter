@@ -25,8 +25,17 @@ class User
         return Request::getInstance()->send('user','register', $data);
     }
 
-    public function login(string $username, string $password){
-
+    public function login(string $username, string $password, int $isType = 0, int $question = 0, string $questionId = '', string $answer = '', string $ip = ''){
+        $data = [
+            'username'  =>  $username,
+            'password'  =>  $password,
+            'isuid'     =>  $isType,
+            'checkques' =>  $question,
+            'questionid'=>  $questionId,
+            'answer'    =>  $answer,
+            'ip'        =>  $ip,
+        ];
+        return Request::getInstance()->send('user','login', $data);
     }
 
     public function logout(int $user_id){

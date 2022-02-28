@@ -11,14 +11,16 @@ class Request
     use Instance;
 
     public function send(string $module, string $action, array $data = [], array $header = []) {
-        $uri = Api::getInstance()->getRequestUri($module, $action, $data);
-        $header['HTTP_USER_AGENT'] = $_SERVER['HTTP_USER_AGENT'];
-        $response = $this->exec($uri, $header);
-        $data = json_decode($response, true) ?: false;
-        if ($data === false){
-            throw new UcenterException($response, 500);
+        $responseHandler = 'Sclecon\\Ucentor\\Utils\\Response\\'.ucfirst($module);
+        if (class_exists($responseHandler) === false){
+            throw new UcenterException("{$module} in Response Error");
+        } else if (in_array($action, (array) get_class_methods($responseHandler)) === false){
+            throw new UcenterException("{$module} in Response {$action} Error");
         }
-        return $data;
+        $uri = Api::getInstance()->getRequestUri($module, $action, $data);
+        $header['user-agent'] = $_SERVER['HTTP_USER_AGENT'];
+        $response = $this->exec($uri, $header);
+        return $responseHandler::getInstance()->$action($response);
     }
 
     protected function exec(string $uri, array $header = []) : string {
