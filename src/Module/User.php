@@ -57,6 +57,10 @@ class User
         return Request::getInstance()->send('user', 'edit', $data);
     }
 
+    public function synLogin(int $user_id){
+        return Request::getInstance()->send('user', 'synlogin', ['uid'=>$user_id]);
+    }
+
     public function logout(int $user_id){
 
     }

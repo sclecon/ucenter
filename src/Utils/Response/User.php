@@ -70,8 +70,6 @@ class User
     }
 
     public function delete(string $response) : \stdClass {
-        var_dump($response);
-        var_dump(intval($response));
         switch (intval($response)){
             case 1: return Response::getInstance()->success('删除用户成功');
             case 0: return Response::getInstance()->error('删除用户失败');
@@ -81,5 +79,11 @@ class User
 
     public function deleteavatar(string $response) : \stdClass {
         return Response::getInstance()->success('删除用户头像成功');
+    }
+
+    public function synlogin(string $response) : \stdClass {
+        return Response::getInstance()->success('同步登录链接获取成功', [
+            'urls'  =>  Tools::getInstance()->htmlToUrl($response)
+        ]);
     }
 }

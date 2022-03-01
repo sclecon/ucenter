@@ -16,7 +16,8 @@ try {
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->profile('大表哥');
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->edit('大表哥', '', '123456', '', 1);
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->deleteavatar(198);
-    $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->delete(198);
+    // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->delete(198);
+    $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->synLogin(234);
     var_dump($response);
 } catch (Exception $exception){
     echo "错误: ".$exception->getMessage().PHP_EOL;

@@ -115,4 +115,9 @@ class Tools
         }
         return str_replace(['<![CDATA[', ']]>'], '', $xml);
     }
+
+    public function htmlToUrl(string $html) : array {
+        preg_match_all('/\<script type="text\/javascript" src="(.*)" reload="1"\>\<\/script\>/U', $html, $response);
+        return $response[1] ?: [];
+    }
 }
