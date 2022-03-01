@@ -8,7 +8,11 @@ try {
         'api'   =>  'https://test2018.suapp.com.cn/uc_server',
         'key'   =>  'M1Qcpdo78aufo7r8v9Od7d66C044g4d0901fV6pc67h6F5HcP7e4Fd1cQ9279416',
         'charset'   =>  'utf-8',
-        'ip'    =>  '119.91.103.125'
+        'ip'    =>  '119.91.103.125',
+        'handler'    =>  [
+            'synlogin'    =>  \Sclecon\Ucentor\Examples\Api::class,
+            'synlogout'    =>  \Sclecon\Ucentor\Examples\Api::class,
+        ]
     ];
 
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->register('ucttt', 'ucttt', 'ucttt@qq.com');
@@ -19,7 +23,14 @@ try {
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->delete(198);
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->synLogin(234);
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->logout();
-    $response = (new \Sclecon\Ucentor\Ucentor($config))->app()->list();
+    // $response = (new \Sclecon\Ucentor\Ucentor($config))->app()->list();
+
+    $_GET = [
+        'code'  =>  '3483r+E2SvPaOEZqesfxsGypXplFYRSRdwkQwYY8F4znRYQKif/utkZJqKwLrrQAO4MDxLUjPKoS+s5UdGH2DBNLz5kWdrLp0UXGnJewyR+Jd+sCoEECSJIOxu0QhoLPmcOVw3EiOn0onNJ+EgEIw8KN55Idc9qU1kpg',
+        'time'  =>  '1646116729'
+    ];
+
+    $response = (new \Sclecon\Ucentor\Ucentor($config))->api()->handle();
     var_dump($response);
 } catch (Exception $exception){
     echo "错误: ".$exception->getMessage().PHP_EOL;

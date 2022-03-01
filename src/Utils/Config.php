@@ -35,6 +35,11 @@ class Config
     protected $ip;
 
     /**
+     * @var array
+     */
+    protected $handler;
+
+    /**
      * @var string
      */
     protected $release = '20141101';
@@ -65,6 +70,7 @@ class Config
         $this->setKey($config['key']);
         $this->setCharset($config['charset']);
         $this->setIp($config['ip']);
+        $this->setHandler((empty($config['handler']) or is_array($config['handler']) === false) ? [] : $config['handler']);
     }
 
     protected function setAppid(string $appid){
@@ -85,6 +91,10 @@ class Config
 
     protected function setIp(string $ip){
         $this->ip = $ip;
+    }
+
+    protected function setHandler(array $handler){
+        $this->handler = $handler;
     }
 
     public function getKey() : string {
@@ -117,6 +127,10 @@ class Config
             throw new UcenterException('IP配置错误');
         }
         return $this->ip;
+    }
+
+    public function getHandler(string $handler) {
+        return empty($this->handler[$handler]) ? false : $this->handler[$handler];
     }
 
     public function __call($function, $args){
