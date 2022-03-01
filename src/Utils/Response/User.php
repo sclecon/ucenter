@@ -27,11 +27,14 @@ class User
     }
 
     public function login(string $response) : \stdClass {
-        $data = Tools::getInstance()->xmlToArray($response);
-        var_dump($data);
-        list($uid, $username, $password, $email) = json_decode($response, true);
+        list($uid, $username, $password, $email) = Tools::getInstance()->xmlToArray($response)['root']['item'];
         if ($uid > 0){
-            return Response::getInstance()->success('登录账号成功', ['uid'=>$uid]);
+            return Response::getInstance()->success('登录账号成功', [
+                'uid'   =>  $uid,
+                'username'  =>  $username,
+                'email'     =>  $email,
+                'password'  =>  $password,
+            ]);
         }
         switch ($uid){
             case -1: return Response::getInstance()->error('用户不存在，或者被删除');

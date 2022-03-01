@@ -12,7 +12,7 @@ try {
     ];
 
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->register('王二麻子1', 'xzcadmin', 'wangermazi@qq.com2');
-    $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->login('王二麻子1', 'xzcadmin');
+    $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->login('uctest', 'uctest');
     var_dump($response);
 } catch (Exception $exception){
     echo "错误: ".$exception->getMessage().PHP_EOL;

@@ -94,7 +94,7 @@ class Tools
             for($i = 0; $i < $count; $i++)
             {
                 $key= $matches[1][$i];
-                $val = xml_to_array( $matches[2][$i] );  // 递归
+                $val = $this->xmlToArray( $matches[2][$i] );  // 递归
                 if(array_key_exists($key, $arr))
                 {
                     if(is_array($arr[$key]))
@@ -112,8 +112,7 @@ class Tools
                 }
             }
             return $arr;
-        }else{
-            return $xml;
         }
+        return str_replace(['<![CDATA[', ']]>'], '', $xml);
     }
 }
