@@ -4,14 +4,14 @@ try {
     require __DIR__.'/../../vendor/autoload.php';
 
     $config = [
-        'appid' =>  'your appid',
-        'api'   =>  'your uc_server url',
-        'key'   =>  'your app key',
+        'appid' =>  4,
+        'api'   =>  'https://test2018.suapp.com.cn/uc_server',
+        'key'   =>  'M1Qcpdo78aufo7r8v9Od7d66C044g4d0901fV6pc67h6F5HcP7e4Fd1cQ9279416',
         'charset'   =>  'utf-8',
-        'ip'    =>  'your uc_server ip',
-        'handler'    =>  [
-            'synlogin'    =>  \Sclecon\Ucentor\Examples\Api::class, // 同步登录处理逻辑定义
-            'synlogout'    =>  \Sclecon\Ucentor\Examples\Api::class,    // 同步退出处理逻辑定义
+        'ip'    =>  '119.91.103.125',
+        'handle'    =>  [
+            'synlogin'    =>  \Sclecon\Ucentor\Examples\Api::class,
+            'synlogout'    =>  \Sclecon\Ucentor\Examples\Api::class,
         ]
     ];
 
@@ -25,9 +25,8 @@ try {
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->logout();
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->app()->list();
 
-    // 模拟外部请求uc/api.php
     $_GET = [
-        'code'  =>  '3483r+E2SvPaOEZqesfxsGypXplFYRSRdwkQwYY8F4znRYQKif/utkZJqKwLrrQAO4MDxLUjPKoS+s5UdGH2DBNLz5kWdrLp0UXGnJewyR+Jd+sCoEECSJIOxu0QhoLPmcOVw3EiOn0onNJ+EgEIw8KN55Idc9qU1kpg',
+        'code'  =>  '1c19auabLeREBXRmHkFkZwvsUBfyi7EdIb91PPicoRzwGMiEFtdqIDSF7whHsPG8uFwLnug9Xum4AabfwWsafgXWidnNEP7EGuclENosObmD878mTjPriScIo0fC27/mkj4Pd0w/zGBbl5tbNayWxxVnE/a4kGl1/6nd',
         'time'  =>  '1646116729'
     ];
 
