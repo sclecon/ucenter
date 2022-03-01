@@ -4,11 +4,11 @@ try {
     require __DIR__.'/../../vendor/autoload.php';
 
     $config = [
-        'appid' =>  4,
-        'api'   =>  'https://test2018.suapp.com.cn/uc_server',
-        'key'   =>  'M1Qcpdo78aufo7r8v9Od7d66C044g4d0901fV6pc67h6F5HcP7e4Fd1cQ9279416',
+        'appid' =>  'your appid',
+        'api'   =>  'your uc_server url',
+        'key'   =>  'your app key',
         'charset'   =>  'utf-8',
-        'ip'    =>  '119.91.103.125',
+        'ip'    =>  'your uc_server ip',
         'handle'    =>  [
             'synlogin'    =>  \Sclecon\Ucentor\Examples\Api::class,
             'synlogout'    =>  \Sclecon\Ucentor\Examples\Api::class,
