@@ -2,6 +2,7 @@
 
 namespace Sclecon\Ucentor;
 
+use Sclecon\Ucentor\Module\App;
 use Sclecon\Ucentor\Module\User;
 use Sclecon\Ucentor\Utils\Config;
 
@@ -13,5 +14,9 @@ class Ucentor
 
     public function user() : User {
         return User::getInstance();
+    }
+
+    public function app() : App {
+        return App::getInstance();
     }
 }

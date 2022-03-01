@@ -3,7 +3,6 @@
 namespace Sclecon\Ucentor\Module;
 
 use Sclecon\Ucentor\Traits\Instance;
-use Sclecon\Ucentor\Utils\Tools;
 use Sclecon\Ucentor\Utils\Verify;
 use Sclecon\Ucentor\Utils\Request;
 

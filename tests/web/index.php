@@ -18,7 +18,8 @@ try {
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->deleteavatar(198);
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->delete(198);
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->synLogin(234);
-    $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->logout();
+    // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->logout();
+    $response = (new \Sclecon\Ucentor\Ucentor($config))->app()->list();
     var_dump($response);
 } catch (Exception $exception){
     echo "错误: ".$exception->getMessage().PHP_EOL;
