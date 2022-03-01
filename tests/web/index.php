@@ -11,8 +11,9 @@ try {
         'ip'    =>  '119.91.103.125'
     ];
 
-    // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->register('王二麻子1', 'xzcadmin', 'wangermazi@qq.com2');
-    $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->login('uctest', 'uctest');
+    // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->register('ucttt', 'ucttt', 'ucttt@qq.com');
+    // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->login('大表哥', 'biaoguo');
+    $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->profile('大表哥');
     var_dump($response);
 } catch (Exception $exception){
     echo "错误: ".$exception->getMessage().PHP_EOL;

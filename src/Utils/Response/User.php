@@ -42,4 +42,16 @@ class User
         }
         return Response::getInstance()->error('未知错误');
     }
+
+    public function get_user(string $response) : \stdClass {
+        list($uid, $username, $email) = Tools::getInstance()->xmlToArray($response)['root']['item'];
+        if ($uid > 0){
+            return Response::getInstance()->success('获取用户资料成功', [
+                'uid'   =>  $uid,
+                'username'  =>  $username,
+                'email'     =>  $email,
+            ]);
+        }
+        return Response::getInstance()->error('用户不存在，或者被删除');
+    }
 }
