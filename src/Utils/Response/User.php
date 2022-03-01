@@ -86,4 +86,10 @@ class User
             'urls'  =>  Tools::getInstance()->htmlToUrl($response)
         ]);
     }
+
+    public function synlogout(string $response) : \stdClass {
+        return Response::getInstance()->success('同步退出登录链接获取成功', [
+            'urls'  =>  Tools::getInstance()->htmlToUrl($response)
+        ]);
+    }
 }

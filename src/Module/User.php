@@ -61,8 +61,8 @@ class User
         return Request::getInstance()->send('user', 'synlogin', ['uid'=>$user_id]);
     }
 
-    public function logout(int $user_id){
-
+    public function logout(){
+        return Request::getInstance()->send('user', 'synlogout', []);
     }
 
     public function delete(int $user_id){
