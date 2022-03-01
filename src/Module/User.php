@@ -61,8 +61,12 @@ class User
 
     }
 
-    public function del(int $user_id){
+    public function delete(int $user_id){
+        return Request::getInstance()->send('user', 'delete', ['uid'=>$user_id]);
+    }
 
+    public function deleteAvatar(int $user_id){
+        return Request::getInstance()->send('user', 'deleteavatar', ['uid'=>$user_id]);
     }
 
 }

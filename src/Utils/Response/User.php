@@ -68,4 +68,18 @@ class User
         }
         return Response::getInstance()->error('未知错误');
     }
+
+    public function delete(string $response) : \stdClass {
+        var_dump($response);
+        var_dump(intval($response));
+        switch (intval($response)){
+            case 1: return Response::getInstance()->success('删除用户成功');
+            case 0: return Response::getInstance()->error('删除用户失败');
+        }
+        return Response::getInstance()->error('未知错误');
+    }
+
+    public function deleteavatar(string $response) : \stdClass {
+        return Response::getInstance()->success('删除用户头像成功');
+    }
 }
