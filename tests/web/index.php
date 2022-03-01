@@ -12,8 +12,9 @@ try {
     ];
 
     // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->register('ucttt', 'ucttt', 'ucttt@qq.com');
-    // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->login('大表哥', 'biaoguo');
-    $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->profile('大表哥');
+    $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->login('大表哥', '123456');
+    // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->profile('大表哥');
+    // $response = (new \Sclecon\Ucentor\Ucentor($config))->user()->edit('大表哥', '', '123456', '', 1);
     var_dump($response);
 } catch (Exception $exception){
     echo "错误: ".$exception->getMessage().PHP_EOL;

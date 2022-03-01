@@ -44,11 +44,20 @@ class User
         return Request::getInstance()->send('user', 'get_user', $data);
     }
 
-    public function logout(int $user_id){
-
+    public function edit(string $username, string $oldPassword = '', string $newPassword = '', string $email = '', int $ignoreOldPassword = 0, string $questionId = '', string $answer = ''){
+        $data = [
+            'username'  =>  $username,
+            'oldpw'     =>  $oldPassword,
+            'newpw'     =>  $newPassword,
+            'email'     =>  $email,
+            'ignoreoldpw'   =>  $ignoreOldPassword,
+            'questionid'    =>  $questionId,
+            'answer'        =>  $answer
+        ];
+        return Request::getInstance()->send('user', 'edit', $data);
     }
 
-    public function edit($password){
+    public function logout(int $user_id){
 
     }
 

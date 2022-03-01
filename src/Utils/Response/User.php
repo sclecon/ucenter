@@ -54,4 +54,18 @@ class User
         }
         return Response::getInstance()->error('用户不存在，或者被删除');
     }
+
+    public function edit(string $response) : \stdClass {
+        switch (intval($response)){
+            case 1: return Response::getInstance()->success('更新成功');
+            case 0: return Response::getInstance()->success('没有做任何更改');
+            case -1: return Response::getInstance()->error('旧密码不正确');
+            case -4: return Response::getInstance()->error('Email 格式有误');
+            case -5: return Response::getInstance()->error('Email 不允许注册');
+            case -6: return Response::getInstance()->error('该 Email 已经被注册');
+            case -7: return Response::getInstance()->error('没有做任何修改');
+            case -8: return Response::getInstance()->error('该用户受保护无权限更改');
+        }
+        return Response::getInstance()->error('未知错误');
+    }
 }
