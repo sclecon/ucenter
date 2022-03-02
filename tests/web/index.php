@@ -9,7 +9,7 @@ try {
         'key'   =>  'your app key',
         'charset'   =>  'utf-8',
         'ip'    =>  'your uc_server ip',
-        'handle'    =>  [
+        'handler'    =>  [
             'synlogin'    =>  \Sclecon\Ucentor\Examples\Api::class,
             'synlogout'    =>  \Sclecon\Ucentor\Examples\Api::class,
         ]
