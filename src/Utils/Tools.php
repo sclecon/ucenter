@@ -26,7 +26,7 @@ class Tools
     }
 
     public function stripsLashes($string) :string {
-        !defined('MAGIC_QUOTES_GPC') && define('MAGIC_QUOTES_GPC', get_magic_quotes_gpc());
+        !defined('MAGIC_QUOTES_GPC') && define('MAGIC_QUOTES_GPC', 0);
         if(MAGIC_QUOTES_GPC) {
             return stripslashes($string);
         } else {
