@@ -1,6 +1,9 @@
 # ucenter
 Discuz框架的Ucenter客户端扩展，理论支持thinkphp、hyperf等第三方框架。
 
+# 安装
+    composer require sclecon/ucenter
+
 ## 接入UC用户中心
 接入UC的用户中心我们需要定义配置参数然后对客户端类进行实例化
 ### 定义配置参数
