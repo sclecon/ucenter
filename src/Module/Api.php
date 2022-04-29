@@ -22,9 +22,11 @@ class Api
 
     protected $fail = -1;
 
-    public function handle() : string {
-        $_GET_DATA = Verify::getInstance()->apiCode(empty($_GET['code']) ? '' : $_GET['code']);
-        Verify::getInstance()->apiTime(empty($_GET_DATA['time']) ? 0 : $_GET_DATA['time']);
+    public function handle(string $code = '', string $time = ''){
+        $code = $code ?: (empty($_GET['code']) ? '' : $_GET['code']);
+        $_GET_DATA = Verify::getInstance()->apiCode($code);
+        $time = $time ?: (empty($_GET_DATA['time']) ? 0 : $_GET_DATA['time']);
+        Verify::getInstance()->apiTime($time);
         if (in_array(empty($_GET_DATA['action']) ? 0 : $_GET_DATA['action'], $this->actions) === false){
             throw new UcenterException('Invalid Request -1');
         }
@@ -40,15 +42,12 @@ class Api
         return $this->success;
     }
 
-    protected function synlogin($get, $post) : string {
-        $user_id = $get['uid'];
-        $response = $this->make('synlogin')->synlogin($user_id);
-        return $response === false ? $this->fail : $this->success;
+    protected function synlogin($get, $post){
+        return $this->make('synlogin')->synlogin($get['uid']);
     }
 
-    protected function synlogout() : string {
-        $response = $this->make('synlogout')->synlogout();
-        return $response === false ? $this->fail : $this->success;
+    protected function synlogout(){
+        return $this->make('synlogout')->synlogout();
     }
 
     private function make($action){
